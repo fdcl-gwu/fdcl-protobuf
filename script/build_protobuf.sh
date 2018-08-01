@@ -37,5 +37,6 @@ git submodule update --init --recursive
 ./configure --prefix=${INSTALL_DIR}
 make
 make check
+sudo checkinstall make install
 
 read -p "Press enter to exit"
