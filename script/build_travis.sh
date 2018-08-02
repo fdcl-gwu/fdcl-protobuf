@@ -15,13 +15,8 @@ if [[ ! "$TEMP_DIR" || ! -d "$TEMP_DIR" ]]; then
 	exit 1
 fi
 
-# delete the temp directory on cleanup
-function cleanup {
-    rm -rf "$TEMP_DIR"
-    echo "Deleted temp working directory $TEMP_DIR"
-}
-
-# trap cleanup EXIT
+echo "Download some dependencies"
+sudo apt-get -y install autoconf automake libtool curl make g++ unzip
 
 echo "We're going to download Eigen ${EIGEN_VER} and install to ${INSTALL_DIR}"
 cd ${TEMP_DIR}

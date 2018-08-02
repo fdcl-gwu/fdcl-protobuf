@@ -7,8 +7,7 @@ addons:
         - ubuntu-toolchain-r-test
 
 before_install:
-    - bash ./scripts/build_protobuf.sh
-    - bash ./scripts/build_eigen.sh
+    - bash ./scripts/build_travis.sh
     - pip install --user cpp-coveralls
 install:       
     - hash -r
@@ -18,7 +17,6 @@ install:
     - cmake -DCOVERAGE=1 ..
     - make all
 script:
-    - ./main
-    - ./test_hdf5
+
 after_success:
     - coveralls --root .. -E ".*external.*" -E ".*CMakeFiles.*" -E ".*tests/.*.cpp.*"
