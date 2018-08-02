@@ -46,8 +46,8 @@ git submodule update --init --recursive
 ./autogen.sh
 
 ./configure --prefix=${INSTALL_DIR}
-make
-make check
+make -j4
+make -j4 check
 sudo make install
 
 echo "Finished Protobuf install"
