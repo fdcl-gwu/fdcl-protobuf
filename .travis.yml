@@ -1,0 +1,24 @@
+language: generic
+sudo: true
+
+addons:
+    apt:
+      sources:
+        - ubuntu-toolchain-r-test
+
+before_install:
+    - bash ./scripts/build_protobuf.sh
+    - bash ./scripts/build_eigen.sh
+    - pip install --user cpp-coveralls
+install:       
+    - hash -r
+    - echo "Now try to build the module"
+    - mkdir build 
+    - cd build
+    - cmake -DCOVERAGE=1 ..
+    - make all
+script:
+    - ./main
+    - ./test_hdf5
+after_success:
+    - coveralls --root .. -E ".*external.*" -E ".*CMakeFiles.*" -E ".*tests/.*.cpp.*"
