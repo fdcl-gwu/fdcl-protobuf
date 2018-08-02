@@ -7,9 +7,7 @@ project(fdcl-protobuf)
 # add_subdirectory("extern/protobuf/cmake")
 # Find required protobuf package
 
-find_package(Protobuf REQUIRED
-    HINTS
-    "extern/protobuf")
+find_package(Protobuf 3.6.1 REQUIRED)
 
 if (NOT Protobuf_FOUND)
     message(STATUS "This project requires Protobuf and will not compile")
