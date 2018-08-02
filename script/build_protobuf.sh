@@ -25,6 +25,7 @@ function cleanup {
 trap cleanup EXIT
 
 echo "Download some dependencies"
+sudo apt-get -y autoremove --purge libprotobuf-dev protobuf_compiler
 sudo apt-get -y install autoconf automake libtool curl make g++ unzip
 
 echo "We're going to download the repo to ${INSTALL_DIR}"
