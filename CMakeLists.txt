@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.9)
 project(fdcl-protobuf)
 
 # Find required protobuf package
-find_package(protobuf CONFIG REQUIRED)
+find_package(Protobuf CONFIG REQUIRED)
 
 if(protobuf_VERBOSE)
   message(STATUS "Using Protocol Buffers ${Protobuf_VERSION}")
