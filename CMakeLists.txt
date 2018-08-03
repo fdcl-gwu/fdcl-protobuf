@@ -4,10 +4,12 @@ cmake_minimum_required(VERSION 3.9)
 # Project
 project(fdcl-protobuf)
 
-# add_subdirectory("extern/protobuf/cmake")
-# Find required protobuf package
+set(CMAKE_PREFIX_PATH
+    ${CMAKE_PREFIX_PATH}
+    usr/local/protobuf
+)
 
-find_package(Protobuf 3.6.1 REQUIRED)
+find_package(Protobuf 3.6.1 CONFIG REQUIRED)
 
 if (NOT Protobuf_FOUND)
     message(STATUS "This project requires Protobuf and will not compile")
